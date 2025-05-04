@@ -1,0 +1,32 @@
+body {
+    /* background-color: #f8f9fa; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/OdinLine_Trabalho/css/imagens/logo_final.png");
+    background-size: cover;
+}
+
+.container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Campos de entrada com fundo semi-transparente */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.8); /* Deixa os inputs levemente transparentes */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.col-12 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}   

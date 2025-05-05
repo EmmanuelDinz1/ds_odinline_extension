@@ -4,8 +4,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/OdinLine_Trabalho/css/imagens/logo_final.png");
+    background-image: url("/ds_odinline_extension/css/imagens/logo_final.png");
     background-size: cover;
+    padding-top: 56px;
 }
 
 .container {
@@ -16,7 +17,6 @@ body {
     height: 100vh;
 }
 
-/* Campos de entrada com fundo semi-transparente */
 .form-control {
     background-color: rgba(255, 255, 255, 0.8); /* Deixa os inputs levemente transparentes */
     border: 1px solid #ccc;
@@ -29,4 +29,64 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-}   
+}
+
+.error{
+	color: red;
+	font-size: 14px; 
+}
+
+hr{
+	border: 2px solid red;
+	background-color: red;
+}
+
+#fotoUsuario{
+	width: 150px;
+	height: 150px;
+	margin-left: calc(50% - 75px);
+	margin-right: calc(50% - 75px);
+	border-radius: 100px;
+
+}
+
+.destaque{
+	font-weight: bold;
+}
+
+#avatarUsuario{
+	width: 25px;
+	height: 25px;
+	border-radius: 100px;
+}
+
+.fotoPequena{
+	width: 30px;
+	height: 30px;
+}
+
+.botaoLogin{
+	width: 100%;
+}
+
+#login a{
+	color: white;
+}
+
+#logoLoja{
+	width: 80%;
+	margin-left: 10%;
+}
+
+@media (max-width: 800px) {
+	#cadastroUsuario{
+		width: 100%;
+		margin-left: 0%;
+	}
+
+	#logoLoja{
+		width: 70%;
+		margin-left: 15%;
+	}
+}
+

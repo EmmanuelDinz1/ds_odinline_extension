@@ -14,24 +14,8 @@ Projeto Web para gestão de compras com foco em praticidade, responsividade e au
 
 ## 📁 Estrutura de Pastas
 
-📦 projeto/
-├── css/
-│ ├── bootstrap.css
-│ └── estilos.css
-├── js/
-│ ├── jquery.js
-│ ├── bootstrap.js
-│ ├── jquery.mask.js
-│ ├── jquery.validate.js
-│ ├── additional-methods.js
-│ ├── login.js
-│ └── usuario.js
-├── imagens/
-│ └── logo_final.png
-├── login.html
-├── menu.html
-├── usuario.html
-└── precos.html
+<pre> ```none 📦 projeto/ ├── css/ │ ├── bootstrap.css │ └── estilos.css ├── js/ │ ├── jquery.js │ ├── bootstrap.js │ ├── jquery.mask.js │ ├── jquery.validate.js │ ├── additional-methods.js │ ├── login.js │ └── usuario.js ├── imagens/ │ └── logo_final.png ├── login.html ├── menu.html ├── usuario.html └── precos.html ``` </pre>
+
 
 
 ## 🚀 Como Executar

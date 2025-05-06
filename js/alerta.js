@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const formAlerta = document.getElementById('formAlerta');
     const listaAlertas = document.getElementById('listaAlertas');
+    const nomeUsuario  = localStorage.getItem("nome");
+    if (nomeUsuario) {
+      document.getElementById ("nomeUsuario").textContent = nomeUsuario;
+    }
   
-    // Carregar alertas do localStorage
     let alertas = JSON.parse(localStorage.getItem('alertas')) || [];
   
     // Função para salvar alertas no localStorage
@@ -17,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${alerta.produtoId}</td>
+          <td>${alerta.descricao}</td>
           <td>R$ ${parseFloat(alerta.valorDesejado).toFixed(2)}</td>
           <td>${alerta.acao}</td>
           <td>
@@ -39,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
   
-    // Verificar preços dos produtos
     const verificarPrecos = async () => {
       for (let i = alertas.length - 1; i >= 0; i--) {
         const alerta = alertas[i];
@@ -51,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
           if (valorAtual <= parseFloat(alerta.valorDesejado)) {
             if (alerta.acao === 'notificar') {
-              // mensagem visual
               window.alert(`🔔 ${produto.descricao} chegou a R$ ${valorAtual.toFixed(2)}!`);
             } else {
               // registrar compra local
@@ -65,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
               localStorage.setItem('compras', JSON.stringify(compras));
               window.alert(`✅ Compra registrada: ${produto.descricao} por R$ ${valorAtual.toFixed(2)}`);
             }
-            // remover alerta
             alertas.splice(i, 1);
             salvarAlertas();
           }
@@ -75,24 +76,45 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       renderizarAlertas();
     };
+    // 1. Ao mudar o Produto ID, busca a descrição
+    document.getElementById('produtoId').addEventListener('blur', async (e) => {
+      const id = e.target.value.trim();
+      const descInput = document.getElementById('descricao');
+      if (!id) {
+        descInput.value = '';
+        return;
+      }
+      try {
+        const res = await fetch(`https://api-odinline.odiloncorrea.com/produto/${id}`);
+        if (!res.ok) throw new Error('Produto não encontrado');
+        const produto = await res.json();
+        descInput.value = produto.descricao;
+      } catch (err) {
+        console.error(err);
+        descInput.value = '❌ Não encontrado';
+      }
+    });
   
     // Evento de submissão do formulário
     formAlerta.addEventListener('submit', e => {
       e.preventDefault();
       const produtoId = document.getElementById('produtoId').value.trim();
       const valorDesejado = document.getElementById('valorDesejado').value.trim();
+      const descricao = document.getElementById("descricao").value.trim();
       const acao = document.getElementById('acao').value;
-  
+      
+      if (descricao == 'undefined' || descricao == "") {
+        return window.alert('ID invalido, produto inexistente.');
+      }
       // validação única por produto
       if (alertas.some(a => a.produtoId === produtoId)) {
         return window.alert('Já existe um alerta para este produto.');
       }
   
-      alertas.push({ produtoId, valorDesejado, acao });
+      alertas.push({ produtoId, descricao, valorDesejado, acao });
       salvarAlertas();
       renderizarAlertas();
       formAlerta.reset();
-      // fecha o modal
       const modal = bootstrap.Modal.getInstance(document.getElementById('modalAlerta'));
       modal.hide();
     });
@@ -100,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // inicialização
     renderizarAlertas();
     // checa preços a cada 5 minutos
-    setInterval(verificarPrecos, 5 * 60 * 1000);
+    // setInterval(verificarPrecos, 1 * 60 * 1000);
+    setInterval(verificarPrecos, 20 * 1000);
   });
   

@@ -34,11 +34,9 @@
             </li>
           </ul>
         </div>
-        <div class="form-inline my-2 my-lg-0">
-          <label class="form-control mr-sm-2" readonly>Maria</label>
-          <a class="btn btn-outline-danger my-2 my-sm-0" href="login.html"
-            >Sair</a
-          >
+        <div class="form-inline my-2 my-lg-0 d-flex gap-2">
+          <label id="nomeUsuario" class="form-control mr-sm-2" readonly></label>
+          <a class="btn btn-outline-danger my-2 my-sm-0" href="login.html" onclick="localStorage.clear();">Sair</a>
         </div>
       </div>
     </nav>
@@ -57,26 +55,6 @@
       </button>
 
       <!-- DataTables wrapper -->
-      <div id="tabelaAlertas_wrapper" class="dataTables_wrapper no-footer">
-        <div class="dataTables_length" id="tabelaAlertas_length">
-          <label>
-            Exibir
-            <select name="tabelaAlertas_length" aria-controls="tabelaAlertas">
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-            resultados por página
-          </label>
-        </div>
-        <div id="tabelaAlertas_filter" class="dataTables_filter">
-          <label>
-            Pesquisar
-            <input type="search" aria-controls="tabelaAlertas" />
-          </label>
-        </div>
-
         <table
           id="tabelaAlertas"
           class="table table-striped dataTable no-footer"
@@ -84,6 +62,7 @@
           <thead class="thead-dark">
             <tr>
               <th>Produto ID</th>
+              <th>Produto</th>
               <th>Valor Desejado (R$)</th>
               <th>Ação</th>
               <th></th>
@@ -139,6 +118,15 @@
                   required
                 />
               </div>
+               <div class="mb-3">
+                <label for="descricao" class="form-label">Produto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="descricao"
+                  readonly
+                />
+              </div>
               <div class="mb-3">
                 <label for="valorDesejado" class="form-label"
                   >Valor Desejado</label
@@ -179,9 +167,7 @@
     <!-- Scripts -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script
-      src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
-    ></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="js/jquery.mask.js"></script>
     <script src="js/alerta.js"></script>
     <script>

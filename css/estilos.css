@@ -1,33 +1,33 @@
 body {
-    /* background-color: #f8f9fa; */
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-image: url("/ds_odinline_extension/css/imagens/logo_final.png");
     background-size: cover;
     padding-top: 56px;
+
+}
+
+.botao-sair{
+	display: flex;
 }
 
 .container {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+    height: auto;
+	width: 100%;
+	padding: 0 1rem;      /* espaçamento lateral */
+	margin: 0 auto;
 }
 
 .form-control {
     background-color: rgba(255, 255, 255, 0.8); /* Deixa os inputs levemente transparentes */
     border: 1px solid #ccc;
-    padding: 10px;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
 .col-12 {
     margin-top: 20px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -65,9 +65,6 @@ hr{
 	height: 30px;
 }
 
-.botaoLogin{
-	width: 100%;
-}
 
 #login a{
 	color: white;
@@ -78,15 +75,27 @@ hr{
 	margin-left: 10%;
 }
 
-@media (max-width: 800px) {
-	#cadastroUsuario{
-		width: 100%;
-		margin-left: 0%;
+@media (max-width: 575.98px) {
+	h1 {
+	  font-size: 1.5rem;           /* título menor */
 	}
-
-	#logoLoja{
-		width: 70%;
-		margin-left: 15%;
+	.card {
+	  margin-bottom: 1rem;         /* mais espaçamento */
 	}
-}
+  }
+  
+  /* Para tablets (576px a 767.98px) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+	h1 {
+	  font-size: 1.75rem;
+	}
+  }
+  
+  /* Para desktops pequenos (768px a 991.98px) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+	h1 {
+	  font-size: 2rem;
+	}
+  }
+  
 

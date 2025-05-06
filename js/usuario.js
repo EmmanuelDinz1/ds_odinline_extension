@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const nomeUsuario = localStorage.getItem("nome");
+  if (nomeUsuario) {
+    document.getElementById("nomeUsuario").textContent = nomeUsuario;
+  }
+});
+
 $(document).ready(function () {
     const chave = localStorage.getItem("chave");
     if (!chave) {
@@ -17,6 +24,7 @@ $(document).ready(function () {
         })
         .then(data => {
             const container = $("#compras-container");
+            console.log(data)
             if (data.length === 0) {
                 container.append("<p>Você ainda não possui compras registradas.</p>");
                 return;

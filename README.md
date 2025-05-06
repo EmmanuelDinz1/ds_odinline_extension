@@ -1,6 +1,6 @@
 # Extension - OdinLine
 
-Projeto Web para gestão de compras com foco em praticidade, responsividade e autenticação de usuários.
+Projeto Web para gestão de compras com foco em praticidade, responsividade e autenticação de usuários. Disciplina: Desenvolvimento de Softtware, prof: odilon
 
 ## 🧩 Funcionalidades
 

@@ -2,10 +2,10 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-image: url("/OdinLine_Trabalho/css/imagens/logo_final.png");
+   /* background-image: url(".../OdinLine_Trabalho/css/imagens/logo_final.png"); */
+	background-image: url("../imagens/logo_final.png"); /* Caminho corrigido */
     background-size: cover;
     padding-top: 56px;
-
 }
 
 .botao-sair{
